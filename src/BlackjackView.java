@@ -62,7 +62,8 @@ public class BlackjackView extends JFrame {
      * @param black A reference to the BlackjackModel object.
      */
     public BlackjackView(BlackjackModel black) {
-        super("CasinoSimulator - Blackjack");
+        // --- FEATURE 1: UPDATED WINDOW TITLE ---
+        super("Elite Casino | Premium Blackjack Table");
         blackjackModel = black;
         x_dealer = x_player = 30; // initial x position
         cards = new LinkedList<>();
@@ -74,6 +75,9 @@ public class BlackjackView extends JFrame {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setResizable(false);
         setLayout(null);
+
+        // --- FEATURE 2: CUSTOM TABLE COLOR ---
+        getContentPane().setBackground(new Color(0, 80, 0));
 
         // Balance and bet labels
         JLabel balanceLabel = new JLabel("Balance: $");
@@ -127,35 +131,35 @@ public class BlackjackView extends JFrame {
         playerTotal.setBounds(330, 234, 50, 30);
         playerTotal.setForeground(Color.WHITE);
 
-        // Chip labels
+        // --- FEATURE 3: CHIP READABILITY (BOLD & LARGER) ---
         chip5 = new JLabel("$5");
         chip5.setBounds(52, 570, 50, 30);
         chip5.setForeground(Color.WHITE);
-        chip5.setFont(new Font("Dialog", Font.PLAIN, 14));
+        chip5.setFont(new Font("Dialog", Font.BOLD, 16));
         chip5.setVisible(false);
 
         chip10 = new JLabel("$10");
         chip10.setBounds(118, 570, 50, 30);
         chip10.setForeground(Color.WHITE);
-        chip10.setFont(new Font("Dialog", Font.PLAIN, 14));
+        chip10.setFont(new Font("Dialog", Font.BOLD, 16));
         chip10.setVisible(false);
 
         chip15 = new JLabel("$15");
         chip15.setBounds(188, 570, 50, 30);
         chip15.setForeground(Color.WHITE);
-        chip15.setFont(new Font("Dialog", Font.PLAIN, 14));
+        chip15.setFont(new Font("Dialog", Font.BOLD, 16));
         chip15.setVisible(false);
 
         chip20 = new JLabel("$20");
         chip20.setBounds(258, 570, 50, 30);
         chip20.setForeground(Color.WHITE);
-        chip20.setFont(new Font("Dialog", Font.PLAIN, 14));
+        chip20.setFont(new Font("Dialog", Font.BOLD, 16));
         chip20.setVisible(false);
 
         chip25 = new JLabel("$25");
         chip25.setBounds(330, 570, 50, 30);
         chip25.setForeground(Color.WHITE);
-        chip25.setFont(new Font("Dialog", Font.PLAIN, 14));
+        chip25.setFont(new Font("Dialog", Font.BOLD, 16));
         chip25.setVisible(false);
 
         // Game buttons
@@ -167,8 +171,11 @@ public class BlackjackView extends JFrame {
         standBtn.setBounds(200, 630, 100, 30);
         standBtn.setEnabled(false);
 
+        // --- FEATURE 4: STYLED HIT BUTTON ---
         hitBtn = new JButton("Hit");
         hitBtn.setBounds(305, 630, 100, 30);
+        hitBtn.setBackground(new Color(200, 0, 0)); // Red background
+        hitBtn.setForeground(Color.WHITE);           // White text
         hitBtn.setEnabled(false);
 
         exitBtn = new JButton("Exit");
@@ -446,7 +453,7 @@ public class BlackjackView extends JFrame {
         }
         Reset(dealerWin);
     }
-  
+
     /**
      * ShowPlayerWin method.
      * Player won; update the label and reset UI.
@@ -464,7 +471,7 @@ public class BlackjackView extends JFrame {
         }
         Reset(playerWin);
     }
-  
+
     /**
      * ShowDraw method.
      * It's a draw; update the label and reset UI.
